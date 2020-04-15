@@ -1,7 +1,7 @@
 import { FETCH_DATA, UPDATE_DATA, SET_ERROR } from '../actions/index'
 
 const initialState = {
-    data: [],
+    stockData: [],
     isFetchingData: false,
     error: ''
 }
@@ -17,7 +17,7 @@ export const dataReducer = (state = initialState, action) => {
         case UPDATE_DATA:
             return {
                 ...state,
-                data: action.payload,
+                stockData: action.payload,
                 isFetchingData: false
             }
         case SET_ERROR:
