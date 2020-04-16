@@ -11,7 +11,7 @@ function App() {
       <DataForm />
 
       <br /> 
-
+      <br />
       <DataList />
     </div>
   );
