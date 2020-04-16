@@ -7,7 +7,7 @@ import DataList from './components/DataList'
 function App() {
   return (
     <div className="App">
-      <h2>2020 US Market</h2>
+      <h2>Apple Stock Price Open and Close</h2>
       <DataForm />
 
       <br /> 

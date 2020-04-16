@@ -8,15 +8,33 @@ const DataList = ({ stockData }) => {
     useEffect(() => {
         getData()
     }, [])
-
+    // {console.log(stockData)}
     return (
+
         <>
-        {stockData.map(stock => (
-            <div key={stock.id.toString()}>
-                {stock.symbol}
-                {stock.historical}
-            </div>
-        ))}
+            {stockData.map(stock => (
+                <div key={stock.date} className="App">
+                    {/* {stock.date}
+                {stock.open}
+                {stock.close} */}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Open</th>
+                                <th>Close</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{stock.date}</td>
+                                <td>{stock.open}</td>
+                                <td>{stock.close}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            ))}
         </>
     )
 }
@@ -24,11 +42,12 @@ const DataList = ({ stockData }) => {
 const mapStateToProps = state => {
     return {
         stockData: state.stockData,
-        isFetchingData: state.isFetchingData
+        isFetchingData: state.isFetchingData,
+        error: state.error
     }
 }
 
 export default connect(
-    mapStateToProps, 
+    mapStateToProps,
     { getData }
-    )(DataList)
+)(DataList)
