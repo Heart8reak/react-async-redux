@@ -11,8 +11,6 @@ export const getData = () => dispatch => {
         type: FETCH_DATA
     })
     axios 
-    // .get(`https://fmpcloud.io/api/v3/historical-price-full/${COM_TICKER}?apikey=${API_KEY}`)
-
     .get(`https://fmpcloud.io/api/v3/historical-price-full/AAPL?apikey=f516bdb97ed378dea4c9519d856d6742`)
 
     .then(res => {
@@ -21,12 +19,12 @@ export const getData = () => dispatch => {
             type: UPDATE_DATA,
             payload: res.data
         })
-    // .catch(err => {
-    //     console.log('ERROR FETCHING DATA FROM API: ', err)
-    //     dispatch({
-    //         type: SET_ERROR,
-    //         payload: 'Error fetching data from the API'
-    //     })
-    // })
+    })
+    .catch(err => {
+        console.log('ERROR FETCHING DATA FROM API: ', err)
+        dispatch({
+            type: SET_ERROR,
+            payload: 'Error fetching data from the API'
+        })
     })
 }

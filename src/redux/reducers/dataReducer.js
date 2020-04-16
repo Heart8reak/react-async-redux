@@ -18,7 +18,8 @@ export const dataReducer = (state = initialState, action) => {
             return {
                 ...state,
                 stockData: action.payload,
-                isFetchingData: false
+                isFetchingData: false,
+                error: ''
             }
         case SET_ERROR:
             return {
